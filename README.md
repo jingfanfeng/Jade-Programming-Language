@@ -1,5 +1,13 @@
 # Jade Programming Language
 
+## Hello World
+
+```swift
+func main() {
+    println("Hello, world!")
+}
+```
+
 ## Table of Contents
 
 - Introduction
@@ -156,7 +164,7 @@ Want a DrawableImage? Just compose:
 
 ```swift
 struct DrawableImage {
-    use Image{}
+    use Image {}
 
     func draw_line(p1: Point, p2: Point) {...}
 }
