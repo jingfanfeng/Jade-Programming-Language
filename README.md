@@ -10,23 +10,23 @@ func main() {
 
 ## Table of Contents
 
-- Introduction
+- [Introduction](#introduction)
 
-- Philosophy
+- [Philosophy](#philosophy)
 
-- Typing
+- [Typing](#typing)
 
-- Error Handling
+- [Error Handling](#error-handling)
 
-- Compile-Time vs Runtime
+- [Compile-Time vs Runtime](#compile-time-vs-runtime)
 
-- Semicolons
+- [Semicolons](#semicolons)
 
-- Composition over Inheritance
+- [Composition over Inheritance](#composition-over-inheritance)
 
-- Explicitness vs Verbosity
+- [Explicitness vs Verbosity](#explicitness-vs-verbosity)
 
-- Unusual Features
+- [Unusual Features](#unusual-features)
 
 ## Introduction
 
