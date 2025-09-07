@@ -103,7 +103,7 @@ Runtime panics exist but are always explicit.
 Semicolons are omitted to reduce clutter. Jade uses parsing rules inspired by Swift:
 
 ```javascript
-let query = db
+var query = db
   .table("users")
   .where("name", "=", "Jane Doe")
   .orWhere("email", "=", "jane@example.com")
