@@ -32,7 +32,7 @@ Jade treats **errors as values**. Unlike exceptions, which create hidden control
 func open_file(name: string) -> FileError!File {...}
 
 func main() {
-    var result = open_file("input.txt") catch {
+    var file = open_file("input.txt") catch {
         println("Error while opening file")
     }
 }
@@ -134,7 +134,6 @@ This code is **clearer** than the alternative:
 ```swift
 loop {
     rect.set_x(rect.x() + 10)
-    // First alternative, builtin getter and setter
 
     if rect.right() >= screen.height() {
         rect.set_right(screen.height)

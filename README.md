@@ -21,12 +21,24 @@ The core philosophy:
 - ✅ Compile-time checks wherever possible
 
 ```swift
+func process_line(line: &string) {...}
+
 func main() {
-    let result = open_file("input.txt")
-    switch result {
-        Ok(file)   => println("Opened file!"),
-        Err(error) => println("Error: " + error.to_string())
+    var file = open_file("input.txt") catch {
+        println("Error while opening file")
+        return
     }
+
+    lines := file.read_all()
+        .split('\n')
+        .collect<vector<_>>()
+
+    for line in lines {
+        process_line(&line)
+        println(line)
+    }
+
+    // File is automatically closed
 }
 ```
 
