@@ -15,7 +15,7 @@ The language is built on a few guiding principles:
 
 Jade uses **static typing** for performance and reliability, while supporting union types and `any` for dynamic behavior when needed.
 
-```jade
+```swift
 func greet(name: string | int) {
     switch name {
         string(s) => println(f"Hello, {s}!"),
@@ -28,7 +28,7 @@ func greet(name: string | int) {
 
 Jade treats **errors as values**. Unlike exceptions, which create hidden control flow, Jade makes all error cases explicit in the type system.
 
-```jade
+```swift
 func open_file(name: string) -> FileError!File {...}
 
 func main() {
@@ -53,11 +53,11 @@ Semicolons are removed to reduce clutter. Jade’s parser uses rules similar to 
 - **Assignments are statements**, not expressions.
 - A line starting with an expression continues the previous line.
 
-```jade
+```swift
 let query = db.table("users")
-.where("name", "=", "Jane Doe")
-.orderBy("created_at", "desc")
-.limit(10)
+    .where("name", "=", "Jane Doe")
+    .orderBy("created_at", "desc")
+    .limit(10)
 ```
 
 This keeps code clean without ambiguity.
@@ -72,7 +72,7 @@ This keeps code clean without ambiguity.
 
 ### Composition Example
 
-```jade
+```swift
 struct Image {
     pixels: [][]u32
 
@@ -96,7 +96,7 @@ struct PngImage: ImageFile {
 
 Adding new behavior is simple:
 
-```jade
+```swift
 struct DrawableImage {
     use Image
     func draw_line(p1: Point, p2: Point) {...}
@@ -118,7 +118,7 @@ Note that there is a line to this. Writing out the full name for commonly used *
 
 Properties can be argued to be implicit behavior. However, there is a line to this. Jade does not use manual memory management, and that could also be argued as implicit. The line is drawn in terms of **readability** and whether hiding the behavior could lead to issues, and the clarity brought by properties outweighs the drawbacks. For instance, take a look at the following code:
 
-```jade
+```swift
 var rect = Rect::new(0, 0, 50, 50)
 
 loop {
@@ -131,7 +131,7 @@ loop {
 
 This code is **clearer** than the alternative:
 
-```jade
+```swift
 loop {
     rect.set_x(rect.x() + 10)
     // First alternative, builtin getter and setter

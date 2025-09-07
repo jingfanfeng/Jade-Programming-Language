@@ -20,7 +20,7 @@ The core philosophy:
 - ✅ Readable syntax without semicolons
 - ✅ Compile-time checks wherever possible
 
-```jade
+```swift
 func main() {
     let result = open_file("input.txt")
     switch result {
@@ -42,7 +42,7 @@ But Jade avoids common pitfalls: no fragile inheritance hierarchies, no hidden e
 
 ## Documentation
 
-- Overview & Philosophy
+- [Overview & Philosophy](docs/overview.md)
 
 - Getting Started
   (planned)
