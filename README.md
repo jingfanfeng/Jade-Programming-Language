@@ -178,17 +178,17 @@ No brittle hierarchies, just flexible reuse.
 
 - Upcasting is explicit
 
-- Properties require explicit getters/setters
+- No constructors - explicit call to a static method
+
+- Lack of exceptions and inheritance
 
 Yes, it’s a little verbose — but it prevents hidden bugs.
 
 ## Unusual Features
 
-Row polymorphism for flexible type reuse
+- Row polymorphism for flexible type reuse
 
-Pattern-matching overloads
-
-(Optional: expand if you want to highlight Jade’s uniqueness.)
+- Pattern-matching overloads
 
 ## Final Thoughts
 
