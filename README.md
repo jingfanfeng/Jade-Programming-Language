@@ -21,7 +21,7 @@ The core philosophy:
 - ✅ Compile-time checks wherever possible
 
 ```swift
-func process_line(line: &string) {...}
+func process_line(&line: string) {...}
 
 func main() {
     var file = open_file("input.txt") catch {
@@ -33,7 +33,7 @@ func main() {
         .split('\n')
         .collect<vector<_>>()
 
-    for line in lines {
+    for &line in lines {
         process_line(&line)
         println(line)
     }
