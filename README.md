@@ -1,195 +1,61 @@
 # Jade Programming Language
 
-## Hello World
+Jade is a statically typed, compiled, multi-paradigm programming language designed to **make developers’ lives easier without sacrificing clarity or safety**.
 
-```swift
+It blends **object-oriented programming (OOP)** and **functional programming (FP)**, borrowing the best ideas while avoiding common pitfalls.
+
+The core philosophy:
+
+- **Explicit > Implicit**
+- **Composition > Inheritance**
+- **Clarity > Cleverness**
+
+---
+
+## Features at a Glance
+
+- ✅ Statically typed with union types for flexibility
+- ✅ Errors as values, not exceptions
+- ✅ Composition and interfaces instead of inheritance
+- ✅ Readable syntax without semicolons
+- ✅ Compile-time checks wherever possible
+
+```jade
 func main() {
-    println("Hello, world!")
-}
-```
-
-## Table of Contents
-
-- [Introduction](#introduction)
-
-- [Philosophy](#philosophy)
-
-- [Typing](#typing)
-
-- [Error Handling](#error-handling)
-
-- [Compile-Time vs Runtime](#compile-time-vs-runtime)
-
-- [Semicolons](#semicolons)
-
-- [Composition over Inheritance](#composition-over-inheritance)
-
-- [Explicitness vs Verbosity](#explicitness-vs-verbosity)
-
-- [Unusual Features](#unusual-features)
-
-## Introduction
-
-Jade is a statically typed, compiled, multi-paradigm language designed to make the developer’s life easier without sacrificing clarity or safety.
-
-It blends object-oriented programming (OOP) and functional programming (FP), borrowing the best ideas while avoiding common pitfalls.
-
-The core philosophy: explicit > implicit, simple > clever, composition > inheritance.
-
-## Philosophy
-
-Jade’s design balances between competing language design choices:
-
-- Static typing with limited dynamic escape hatches
-
-- Errors as values instead of exceptions
-
-- Composition instead of inheritance
-
-- Readable syntax without semicolons
-
-- Explicit conversions to avoid hidden magic
-
-## Typing
-
-Jade uses static typing for performance and safety, with support for `any` and union types when dynamic flexibility is needed.
-
-```swift
-func greet(name: string | int) {
-    switch name {
-        string(s) => println("String given"),
-        int(i) => println("Int given"),
+    let result = open_file("input.txt")
+    switch result {
+        Ok(file)   => println("Opened file!"),
+        Err(error) => println("Error: " + error.to_string())
     }
 }
 ```
 
-## Error Handling
+## Why Jade?
 
-Errors are values, not exceptions. This forces programmers to handle failure paths explicitly.
+Jade takes the **middle path** between strict, verbose languages and overly permissive ones:
 
-### Why Not Exceptions?
+- From Java & C++: structure, performance, static guarantees
+- From Rust & Swift: safety and modern ergonomics
+- From Go: simplicity and readability
 
-Exceptions create hidden control flow. For example:
+But Jade avoids common pitfalls: no fragile inheritance hierarchies, no hidden exception flow, and no semicolon clutter.
 
-```java
-// Java-style exception
-try {
-    file = open("input.txt")
-} catch FileNotFound {
-    println("File not found")
-}
-```
+## Documentation
 
-The problem: you can’t tell by reading the function signature which errors might occur.
+- Overview & Philosophy
 
-Errors as Values
+- Getting Started
+  (planned)
 
-In Jade, error handling looks like this:
+- Syntax Guide
+  (planned)
 
-```swift
-func open_file(name: string) -> FileError!File {...}
+- Error Handling
+  (planned)
 
-func main() {
-    var result = open_file("input.txt") catch |err| {
-        println(f"Error: ${err.message}")
-    }
-}
-```
+- Advanced Features
+  (planned)
 
-This is explicit and composable, like Rust’s Result type but with syntactic sugar to reduce boilerplate.
+## Status
 
-## Compile-Time vs Runtime
-
-All errors detectable at compile-time are caught before execution.
-
-Panics outside guarded contexts are compile-time errors.
-
-Runtime panics exist but are always explicit.
-
-## Semicolons
-
-Semicolons are omitted to reduce clutter. Jade uses parsing rules inspired by Swift:
-
-```javascript
-var query = db
-  .table("users")
-  .where("name", "=", "Jane Doe")
-  .orWhere("email", "=", "jane@example.com")
-  .orderBy("created_at", "desc")
-  .limit(10);
-```
-
-Assignments are statements, not expressions, preventing tricky one-liners like in Python:
-
-```python
-print(arr[i = 5]) # Bad style Jade disallows
-```
-
-This keeps code explicit and readable.
-
-## Composition over Inheritance
-
-### Why Not Inheritance?
-
-- Increases complexity (protected members, fragile hierarchies)
-
-- Makes refactoring painful
-
-- Encourages rigid designs
-
-### Composition Example
-
-```swift
-struct Image {
-    pixels: [][]u32
-
-    func resize() {...}
-    func flip_horizontal() {...}
-}
-
-interface ImageFile {
-    static func load(path: string) -> Self
-    func save(path: string)
-}
-
-struct PngImage: ImageFile {
-    use Image {} // mix in Image methods
-
-    static func load(path: string) -> Self {...}
-    func save(path: string) {...}
-}
-```
-
-Want a DrawableImage? Just compose:
-
-```swift
-struct DrawableImage {
-    use Image {}
-
-    func draw_line(p1: Point, p2: Point) {...}
-}
-```
-
-No brittle hierarchies, just flexible reuse.
-
-## Explicitness vs Verbosity
-
-- No implicit conversions between types
-
-- Upcasting is explicit
-
-- No constructors - explicit call to a static method
-
-- Lack of exceptions and inheritance
-
-Yes, it’s a little verbose — but it prevents hidden bugs.
-
-## Unusual Features
-
-- Row polymorphism for flexible type reuse
-
-- Pattern-matching overloads
-
-## Final Thoughts
-
-This README is both an overview and a design rationale. For tutorials, syntax guides, and detailed examples, see the /docs folder (future).
+Jade is currently in the **design stage**. Syntax and philosophy are being documented before implementation. Contributions, feedback, and design discussions are welcome.
